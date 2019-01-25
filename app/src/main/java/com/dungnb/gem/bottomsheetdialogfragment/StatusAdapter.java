@@ -34,7 +34,7 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.ViewHolder
   public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
     String status = mListStatus.get(i);
     viewHolder.mTvStatus.setText(status);
-    //viewHolder.itemView.setBackgroundColor(viewHolder.itemView.isSelected() ? R.color.colorSelected : R.color.colorUnSelected);
+    viewHolder.itemView.setBackgroundColor(viewHolder.itemView.isSelected() ? R.color.colorSelected : R.color.colorUnSelected);
     viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
