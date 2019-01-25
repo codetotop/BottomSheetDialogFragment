@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BottomSheetDialogFragment</string>
+    <string-array name="list_status">
+        <item>Open</item>
+        <item>Working</item>
+        <item>Closing</item>
+    </string-array>
 </resources>
