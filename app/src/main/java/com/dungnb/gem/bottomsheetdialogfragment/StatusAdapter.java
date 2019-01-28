@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
 @SuppressLint("ResourceAsColor")
 public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.ViewHolder> {
   ArrayList<String> mListStatus;
   Context mContext;
+  int mSelectedPosition = -1;
 
 
   public StatusAdapter(ArrayList<String> listStatus, Context context) {
@@ -31,16 +33,20 @@ public class StatusAdapter extends RecyclerView.Adapter<StatusAdapter.ViewHolder
   }
 
   @Override
-  public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+  public void onBindViewHolder(@NonNull final ViewHolder viewHolder, int i) {
     String status = mListStatus.get(i);
     viewHolder.mTvStatus.setText(status);
-    viewHolder.itemView.setBackgroundColor(viewHolder.itemView.isSelected() ? R.color.colorSelected : R.color.colorUnSelected);
+    viewHolder.itemView.setBackgroundColor(i == mSelectedPosition ? R.color.colorSelected : R.color.colorUnSelected);
     viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-
+        setSelectedPosition(viewHolder.getAdapterPosition());
       }
     });
+  }
+
+  public void setSelectedPosition(int position) {
+    mSelectedPosition = position;
   }
 
   @Override
